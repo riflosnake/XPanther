@@ -12,7 +12,7 @@ or search it by 'xpanther' if you have editor with package installer.
 
 Then, import it to your file like:
   
-    from xpanther.XPanther import XPanther
+    from xpanther import XPanther
 
 #### It comes with two classes, the 1st, main one -- XPanther(), and the 2nd one which I'll explain later, XPantherIDE().
 
@@ -67,7 +67,7 @@ XPantherIDE is a simple script, which opens a chrome browser on your preferred s
 
 Import:
     
-    from xpanther.XPantherIDE import XPantherIDE
+    from xpanther import XPantherIDE
 
 --**DISCLAIMER**-- This script is still experimental, buttons that can redirect the page don't return value for the moment, this is a bug that will be fixed in the future.
 
