@@ -249,7 +249,7 @@ class XPanther:
         tag = all_elements[0][0]
 
         for child in reversed(self.__children_index):
-            child_index_xpath += f'/[{child}]'
+            child_index_xpath += f'/*[{child}]'
 
         for _ in self.__gen:
             parent_hierarchy += f'/..'
@@ -289,7 +289,7 @@ class XPanther:
 
     def __find_parent(self, element):
         target_index = element[2]
-        child_index = -1
+        child_index = 0
         for i in reversed(range(target_index)):
             if element[1] > self.__keys[i][1]:
                 child_index += 1
