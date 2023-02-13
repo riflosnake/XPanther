@@ -13,14 +13,14 @@ or search it by 'xpanther' if you have editor with package installer.
 Then, import it to your file like:
   
     from xpanther import XPanther
+    
+#### If it doesn't show up (happens in pycharm sometimes), go to global site-packages ({pip show xpanther}<--cmd command to find directory), find and copy xpanther package, and paste it to your project's venv.
 
-#### It comes with two classes, the 1st, main one -- XPanther(), and the 2nd one which I'll explain later, XPantherIDE().
+## How to use:
 
-### **XPanther()** class needs to take as parameter the whole **DOM/HTML/XML** text, which can be in the form of **string**, the **path** to any local text file you might have or a page **url** (check below for optional-parameter page_url).
+#### Insert inside **_XPanther()_** the whole **HTML/XML** text, which can be in the form of **string**, the **path** to any local text file you might have or a page **url** (check below for optional-parameter page_url).
 
-This class has only one intended function to be used, which is **capture()**.
-
-### XPanther('//testFile.txt').capture() -- this function takes as parameter the **outerHTML/whole** text of element to be found, or alternatively an integer, which represents the index of that element in the DOM, starting from 1 as the first (check below for interesting usage of index input).
+#### Insert inside **._capture()_** -- the **outerHTML/whole** text of element to be found, or alternatively an integer, which represents the index of that element in the DOM, starting from 1 as the first (check below for interesting usage of index input).
 
 After writing this , run the code and the **xpath** of that element should be returned and printed in the output
 
@@ -33,7 +33,8 @@ After writing this , run the code and the **xpath** of that element should be re
     ⬇ Element with html-index -> (945 / 1088) ⬇
     //li[@aria-current="step"][@class="flex-nowrap"]
     
-    
+#### Output from using XPantherIDE:
+   <img src="https://user-images.githubusercontent.com/108073687/218467068-292fab8b-844d-4566-a180-31af161fbbaa.jpg" width = "500">
     
 #### **The class has a few optional-parameters that you can change to modify it in the way you want:**
 
