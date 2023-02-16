@@ -2,6 +2,8 @@
 
 ## Find Unique Xpath expressions of HTML/XML elements.
 
+### Mostly intended for Selenium and Appium automators.
+
 ### This python module's objective is to find unique xpath selector for any element in a document, using unique attributes/combination of attributes/parent or child relationship methods to find and write such expression for correctly identifying that element.
 
 ## How to install:
@@ -45,6 +47,10 @@ After writing this , run the code and the **xpath** of that element should be re
 -**url_input**, default is False, should set to True if you intend to insert page url intead of text or file as the dom parameter of this class.
 
 -**child_method**, default is True, you can set it to False if you don't want the Xpath to be found using its children, reason for this can depend on context.
+
+-**show_all**, default is False, set it to True if you want all possible working xpaths found and not resort to only the one chosen by program.
+
+-**no_digits**, default is False, set it to True if you don't want element attributes that contain numbers.
 
 -**print_output**, default is True, you might set it to False if you don't want the program to print anything in console but just return the xpath as a value in any variable or function.
 
