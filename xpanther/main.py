@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 
 class XPanther:
-    def __init__(self, DOM, xml=False, pre_formatted=False, url_input=False, child_method=True, print_output=True, speed='normal'):
+    def __init__(self, DOM, xml=False, pre_formatted=False, url_input=False, child_method=True, print_output=True, no_digits=False, show_all=False, speed='normal'):
         self.__dom = DOM
         self.__keys = []
         self.__formatted_html_lines = []
@@ -24,7 +24,9 @@ class XPanther:
         self.__xml = xml
         self.__pre_formatted = pre_formatted
         self.__identifier_method = None
+        self.__no_digits = no_digits
         self.__url_input = url_input
+        self.__show_all = show_all
         self.__print_output = print_output
         self.__speed = speed
 
@@ -43,21 +45,35 @@ class XPanther:
                 if re.match(closing_tag_regex, line.lstrip()):
                     pass
                 else:
-                    occurrence = [i for i, x in enumerate(self.__formatted_html_lines) if Counter(x) == Counter(line.lstrip())]
+                    if self.__xml:
+                        if not self.__pre_formatted:
+                            occurrence = [i for i, x in enumerate(self.__formatted_html_lines) if Counter(x[:-1]) == Counter(line.lstrip()[:-2])]
+                        else:
+                            occurrence = [i for i, x in enumerate(self.__formatted_html_lines) if
+                                          Counter(x) == Counter(line.lstrip())]
+                    else:
+                        occurrence = [i for i, x in enumerate(self.__formatted_html_lines) if
+                                      Counter(x) == Counter(line.lstrip())]
                     list_of_occurrences.append(occurrence)
             indexes_of_element = []
             if len(list_of_occurrences[0]) > 1:
-                successive_pattern = lambda lists: set(lists[0]).intersection(*({x - i for x in l} for i, l in enumerate(lists[1:], start=1)))
-                successive_pattern = [x for x in successive_pattern(list_of_occurrences)]
-                try:
-                    if len(successive_pattern) > 1:
-                        self.__print("\033[95m {}\033[00m" .format(f'Element is identical to {len(successive_pattern) - 1} other element/s || w/o context highest index \u2B07 is preferred'))
-                        self.__identical = True
-                    for pattern in successive_pattern:
-                        indexes_of_element.append(list_of_occurrences[0].index(pattern))
-                except IndexError:
-                    self.__print('Program couldn\'t find this element in DOM, make sure it is inputted correctly !')
-                    return False
+                if len(formatted_element) > 1:
+                    successive_pattern = lambda lists: set(lists[0]).intersection(*({x - i for x in l} for i, l in enumerate(lists[1:], start=1)))
+                    successive_pattern = [x for x in successive_pattern(list_of_occurrences)]
+                    try:
+                        if len(successive_pattern) > 1:
+                            self.__print("\033[95m {}\033[00m" .format(f'Element is identical to {len(successive_pattern) - 1} other element/s || w/o context highest index \u2B07 is preferred'))
+                            self.__identical = True
+                        for pattern in successive_pattern:
+                            indexes_of_element.append(list_of_occurrences[0].index(pattern))
+                    except IndexError:
+                        self.__print('Program couldn\'t find this element in DOM, make sure it is inputted correctly !')
+                        return False
+                else:
+                    indexes_of_element = [i for i, x in enumerate(list_of_occurrences[0])]
+                    self.__print("\033[95m {}\033[00m".format(
+                        f'Element is identical to {len(indexes_of_element) - 1} other element/s || w/o context highest index \u2B07 is preferred'))
+                    self.__identical = True
             else:
                 indexes_of_element = [0]
             outerHTML_input = re.findall(element_regex, formatted_element[0])
@@ -189,11 +205,21 @@ class XPanther:
         differences.pop(element[2])
         unique_elements = list((differences[0]).intersection(*differences))
         if unique_elements:
-            self.__identifier_method = 'element'
-            if any('id="' in (fast_id := element) for element in unique_elements):
-                return fast_id
+            if not self.__show_all:
+                if self.__no_digits:
+                    for element in unique_elements:
+                        if any(char.isdigit() for char in element):
+                            unique_elements.remove(element)
+                self.__identifier_method = 'element'
+                if any('id="' in (fast_id := element) for element in unique_elements):
+                    return fast_id
+                elif unique_elements:
+                    return min(unique_elements, key=len)
+                else:
+                    return False
             else:
-                return min(unique_elements, key=len)
+                self.__identifier_method = 'element'
+                return unique_elements
         else:
             return False
 
@@ -217,14 +243,26 @@ class XPanther:
                 for comb in combinations_list:
                     if not set(comb).issubset(keys[0]):
                         available_combinations.append(comb)
-
+        show_all = []
         for combination in combinations_list:
+            pass_iter = False
             if available_combinations.count(combination) == len(self.__keys) - 1:
-                self.__identifier_method = 'combination'
-                combination = [x for x in combination]
-                return combination
+                if self.__no_digits:
+                    for element in combination:
+                        if any(char.isdigit() for char in element):
+                            combinations_list.remove(combination)
+                            pass_iter = True
+                if not pass_iter:
+                    self.__identifier_method = 'combination'
+                    combination = [x for x in combination]
+                    if not self.__show_all:
+                        return combination
+                    else:
+                        show_all.append(combination)
+                else:
+                    pass
 
-        return False
+        return show_all
 
     def __select_attribute_pool_size(self, elements):
         if self.__speed == 'normal':
@@ -254,29 +292,52 @@ class XPanther:
         for _ in self.__gen:
             parent_hierarchy += f'/..'
 
+        if not self.__show_all:
+            unique_elements = [unique_elements]
+
         if not combination:
-            if tag == unique_elements:
+            for unique_element in unique_elements:
+                if not self.__xml:
+                    attr_type = (tag == unique_element)
+                else:
+                    attr_type = (tag in unique_element)
+                if attr_type:
+                    XPATH = f'//{tag}'
+                    final_Xpath = XPATH + child_index_xpath + parent_hierarchy
+                    self.__print(final_Xpath)
+                    if not self.__show_all:
+                        return final_Xpath
+                else:
+                    XPATH = f'//{tag}[@{unique_element}]'
+                    final_Xpath = XPATH + child_index_xpath + parent_hierarchy
+                    self.__print(final_Xpath)
+                    self.__children_index = []
+                    self.__gen = []
+                    if not self.__show_all:
+                        return final_Xpath
+            return True
+        elif combination:
+            for unique_element in unique_elements:
+                if classes := self.__merge_classes(unique_element):
+                    unique_element = [x for x in unique_element if 'class="' not in x]
+                    unique_element.append(classes)
+                for element in unique_element:
+                    if not self.__xml:
+                        if tag == element:
+                            unique_element.remove(element)
+                    else:
+                        if tag in element:
+                            unique_element.remove(element)
                 XPATH = f'//{tag}'
-                self.__print(XPATH + child_index_xpath + parent_hierarchy)
-                return XPATH
-            else:
-                XPATH = f'//{tag}[@{unique_elements}]'
+                for element in unique_element:
+                    XPATH += f'[@{element}]'
                 final_Xpath = XPATH + child_index_xpath + parent_hierarchy
                 self.__print(final_Xpath)
-                return final_Xpath
-        elif combination:
-            if classes := self.__merge_classes(unique_elements):
-                unique_elements = [x for x in unique_elements if 'class="' not in x]
-                unique_elements.append(classes)
-            for element in unique_elements:
-                if tag == element:
-                    unique_elements.remove(element)
-            XPATH = f'//{tag}'
-            for element in unique_elements:
-                XPATH += f'[@{element}]'
-            final_Xpath = XPATH + child_index_xpath + parent_hierarchy
-            self.__print(final_Xpath)
-            return final_Xpath
+                self.__children_index = []
+                self.__gen = []
+                if not self.__show_all:
+                    return final_Xpath
+            return True
         else:
             self.__print(f'Element\'s --{all_elements[0]}-- format is not normal !')
             return False
@@ -365,7 +426,6 @@ class XPanther:
                     classes.append(values[1].split())
                 else:
                     pass
-
         if classes:
             return classes[0]
         else:
