@@ -29,17 +29,10 @@ Then, import it to your file like:
 
 After writing this , run the code and the **xpath** of that element should be returned and printed in the output
 
-#### Code execution illustration:
+#### Code execution illustrations:
 
-    #INPUT
-    XPanther('//testFile.txt').capture('<li class="stepper-item align-items-center flex-nowrap" aria-current="step">')
-    
-    #OUTPUT
-    ⬇ Element with html-index -> (945 / 1088) ⬇
-    //li[@aria-current="step"][@class="flex-nowrap"]
-    
-#### Output from using XPantherIDE:
-   <img src="https://user-images.githubusercontent.com/108073687/218467068-292fab8b-844d-4566-a180-31af161fbbaa.jpg" width = "500">
+<img src="https://user-images.githubusercontent.com/108073687/219906727-07172ca3-b5e9-4170-9538-9d0c777fb4c5.jpg" width="900">
+<img src="https://user-images.githubusercontent.com/108073687/219906731-d7215aab-1526-440f-809a-f14c6f3b31ab.jpg" width="900">
     
 #### **The class has a few optional-parameters that you can change to modify it in the way you want:**
 
@@ -61,7 +54,8 @@ After writing this , run the code and the **xpath** of that element should be re
           'slow' can take as much as 35 attributes of element to go on and find combinations of, it is my recommended maximum limit, any more than that might crash the computer.
           if you have a slow computer, better set it to 'fast', cause it takes lesser number of combination and lowers memory and performance consumption, thus increasing speed of execution.
 
-### For most optimal usage, keep this values as default, you have to only change  to xml=True if you are not dealing with HTML, and url_input=True if you like to fetch the HTML directly from link. 
+## For most optimal usage, keep this values as default, you have to only change  to xml=True if you are not dealing with HTML, and url_input=True if you like to fetch the HTML directly from link. 
+
 
 #### Interesting way which you can utilize putting an integer as parameter to capture(), is this function like here:
 
@@ -71,6 +65,7 @@ After writing this , run the code and the **xpath** of that element should be re
 Literally, create and write an unique xpath for every element in the document if you want (change the number in range() accordingly).
 
 
+
 ## If you are into web automation, that's where **XPantherIDE** comes into play.
 
 XPantherIDE is a simple script, which opens a chrome browser on your preferred starting page url, and will register any click made in the page, after you close the browser as you normally would, every unique xpath of element you clicked upon will be shown in succession, thus making automation a lot easier, especially for people who struggle finding xpaths.
@@ -78,6 +73,10 @@ XPantherIDE is a simple script, which opens a chrome browser on your preferred s
 Import:
     
     from xpanther import XPantherIDE
+    
+#### Output from using XPantherIDE:
+   <img src="https://user-images.githubusercontent.com/108073687/218467068-292fab8b-844d-4566-a180-31af161fbbaa.jpg" width = "500">
+    
 
 --**DISCLAIMER**-- This script is still experimental, buttons that can redirect the page don't return value for the moment, this is a bug that will be fixed in the future.
 
