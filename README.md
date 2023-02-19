@@ -15,6 +15,7 @@
     
 or search it by 'xpanther' if you have editor with package installer.
 
+
 Then, import it to your file like:
   
     from xpanther import XPanther
@@ -23,11 +24,16 @@ Then, import it to your file like:
 
 ## How to use:
 
-#### Insert inside **_XPanther()_** the whole **HTML/XML** text, which can be in the form of **string**, the **path** to any local text file you might have or a page **url** (check below for optional-parameter page_url).
+#### Insert inside **_XPanther()_** the whole **HTML/XML** text, which can be in the form of:
+- **string**, 
+- the **path** to any local text file you might have or 
+- a page **url** (check below for optional-parameter page_url).
 
-#### Insert inside **._capture()_** -- the **outerHTML/whole** text of element to be found, or alternatively an integer, which represents the index of that element in the DOM, starting from 1 as the first (check below for interesting usage of index input).
+#### Insert inside **._capture()_** the **outerHTML/whole** text of element to be found:
+- as a **string**
+- or alternatively an **integer**, which represents the index of that element in the DOM, starting from 1 as the first (check below for interesting usage of index input).
 
-After writing this , run the code and the **xpath** of that element should be returned and printed in the output
+After writing this , run the code and the **xpath** of that element should be returned as value and printed in the console.
 
 #### Code execution illustrations:
 
@@ -36,21 +42,21 @@ After writing this , run the code and the **xpath** of that element should be re
     
 #### **The class has a few optional-parameters that you can change to modify it in the way you want:**
 
--**xml**, default is False, you MUST set it to True if document is not HTML, this is because the xml document can contain uppercase characters in attributes, unlike html, so a different parser needs to be used.
+- **xml**, default is False, you MUST set it to True if document is not HTML, this is because the xml document can contain uppercase characters in attributes, unlike html, so a different parser needs to be used.
 
--**pre_formatted**, default is False, you can set it to True if you have already formatted document and don't want formatter of XPanther to change anything.
+- **pre_formatted**, default is False, you can set it to True if you have already formatted document and don't want formatter of XPanther to change anything.
 
--**url_input**, default is False, should set to True if you intend to insert page url intead of text or file as the dom parameter of this class.
+- **url_input**, default is False, should set to True if you intend to insert page url intead of text or file as the dom parameter of this class.
 
--**child_method**, default is True, you can set it to False if you don't want the Xpath to be found using its children, reason for this can depend on context.
+- **child_method**, default is True, you can set it to False if you don't want the Xpath to be found using its children, reason for this can depend on context.
 
--**show_all**, default is False, set it to True if you want all possible working xpaths found and not resort to only the one chosen by program.
+- **show_all**, default is False, set it to True if you want all possible working xpaths found and not resort to only the one chosen by program.
 
--**no_digits**, default is False, set it to True if you don't want element attributes that contain numbers.
+- **no_digits**, default is False, set it to True if you don't want element attributes that contain numbers.
 
--**print_output**, default is True, you might set it to False if you don't want the program to print anything in console but just return the xpath as a value in any variable or function.
+- **print_output**, default is True, you might set it to False if you don't want the program to print anything in console but just return the xpath as a value in any variable or function.
 
--**speed**, default is 'normal', other valid options are 'fast' -- (less detailed, faster execution), 'slow' -- (more detailed, slower execution), or an integer (maximum is 50,which represent the number of attributes of element program can take and proccess to find combinations of).
+- **speed**, default is 'normal', other valid options are 'fast' -- (less detailed, faster execution), 'slow' -- (more detailed, slower execution), or an integer (maximum is 50, which represent the number of attributes of element program can take and proccess to find combinations of).
           'slow' can take as much as 35 attributes of element to go on and find combinations of, it is my recommended maximum limit, any more than that might crash the computer.
           if you have a slow computer, better set it to 'fast', cause it takes lesser number of combination and lowers memory and performance consumption, thus increasing speed of execution.
 
@@ -74,13 +80,17 @@ Import:
     
     from xpanther import XPantherIDE
     
+Use:
+
+    XPantherIDE('page_url').start()
+    
 #### Output from using XPantherIDE:
    <img src="https://user-images.githubusercontent.com/108073687/218467068-292fab8b-844d-4566-a180-31af161fbbaa.jpg" width = "500">
     
 
 --**DISCLAIMER**-- This script is still experimental, buttons that can redirect the page don't return value for the moment, this is a bug that will be fixed in the future.
 
-**Both programs are open to improvements or new ideas.**
+### **Both programs are open to improvements or new ideas!**
 
 
 
