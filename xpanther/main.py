@@ -4,9 +4,7 @@ from itertools import combinations
 from collections import Counter
 from bs4 import BeautifulSoup
 
-# TODO # 1: Find the PERFECT regexes.
-# TODO # 2: iFrames are not supported.
-# TODO # 3: FINAL --- Print the output ready in various forms for multiple platforms and languages.
+# TODO # 1: FINAL --- Print the output ready in various forms for multiple platforms and languages.
 
 
 class XPanther:
@@ -190,10 +188,18 @@ class XPanther:
                     self.__keys.append([keys_of_element, len(line) - len(line.lstrip()), index])
                     index += 1
 
-    @staticmethod
-    def __regex_distributor():
+    def __regex_distributor(self, formatted_HTML):
+        attr_regex = '(?:\w+[-.]*)+(?:=+\"[\w\d\s:;,$@#!\[\]^&?%\'*\\/+(){}.=-]*\")*'
+
+        if self.__pre_formatted:
+            for line in formatted_HTML:
+                if '="' in line:
+                    break
+                elif "='" in line:
+                    attr_regex = "(?:\w+[-.]*)+(?:=+\'[\w\d\s:;,$@#!\[\]^&?%\"*\\/+(){}.=-]*\')*"
+                    break
+
         element_regex = '<.*?>'
-        attr_regex = '(?:\w+[-.]*)+(?:=+[\'\"][\w\d\s:;,$@#!\[\]^&?%*/+(){}.=-]*[\'\"])*'
         closing_tag_regex = '</.*?>'
 
         return element_regex, attr_regex, closing_tag_regex
