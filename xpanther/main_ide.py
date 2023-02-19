@@ -3,8 +3,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium import webdriver
 from xpanther import XPanther
 
-# TODO : This should be done with GUI.
-# TODO : The button which gets clicked, doesn't get value in the script, find a way to persist variables through JavaScript
+# TODO # 1: The button which gets clicked, doesn't get value in the script, find a way to persist variables through JavaScript
+# TODO # 2: iFrames are not supported
+# TODO # 3: This should be done with GUI.
 
 
 class XPantherIDE:
