@@ -277,7 +277,7 @@ class XPanther:
             speed = 35
         elif self.__speed == 'fast':
             speed = 15
-        elif type(self.__speed) == int and self.__speed <= 50:
+        elif type(self.__speed) == int and int(self.__speed) <= 50:
             speed = self.__speed
         else:
             speed = 25
