@@ -1,2 +1,2 @@
-from main import XPanther
-from main_ide import XPantherIDE
+from xpanther.main import XPanther
+from xpanther.main_ide import XPantherIDE
