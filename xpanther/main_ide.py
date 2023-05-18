@@ -1,4 +1,4 @@
-from selenium.common import TimeoutException, WebDriverException
+from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium import webdriver
 from xpanther import XPanther
