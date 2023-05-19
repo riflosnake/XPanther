@@ -13,16 +13,15 @@
 ```python
 pip install xpanther
 ```   
-or search it by 'xpanther' if you have editor with package installer.
+_or search it by `xpanther` if you have editor with package installer. If it doesn't show up (happens in pycharm sometimes), go to global site-packages (`pip show xpanther`<--cmd command to find directory), find and copy xpanther package, and paste it to your project's venv._
 
-
-Then, import it to your file like:
+## This package contains 2 modules, `XPanther` and `XPantherIDE`, let's start with the powerhouse!
+Import XPanther to your file like:
   
 ```python
 from xpanther import XPanther
 ```
-    
-#### If it doesn't show up (happens in pycharm sometimes), go to global site-packages ({pip show xpanther}<--cmd command to find directory), find and copy xpanther package, and paste it to your project's venv.
+
 
 ## How to use:
 
@@ -77,9 +76,9 @@ Literally, create and write an unique xpath for every element in the document if
 
 
 
-## If you are into web automation, that's where **XPantherIDE** comes into play.
+# If you are into web automation, that's where `XPantherIDE` comes into play.
 
-XPantherIDE is a simple script, which opens a chrome browser on your preferred starting page url, and will register any click made in the page, after you close the browser as you normally would, every unique xpath of element you clicked upon will be shown in succession, thus making automation a lot easier, especially for people who struggle finding xpaths.
+`XPantherIDE` is a simple Selenium script, that tries to mimic an IDE for finding xpaths instantly on any web page with just 1 click.
 
 Import:
 ```python
@@ -89,11 +88,8 @@ Use:
 ```python
 XPantherIDE('page_url').start()
 ```   
-#### Output from using XPantherIDE:
-   <img src="https://user-images.githubusercontent.com/108073687/218467068-292fab8b-844d-4566-a180-31af161fbbaa.jpg" width = "500">
     
-
---**DISCLAIMER**-- This script is still experimental, buttons that can redirect the page don't return value for the moment, this is a bug that will be fixed in the future.
+#### After you run the program, the browser will open, and you can start finding xpaths by `right-clicking` over elements. A pop up alert will appear showing the xpath, you must accept/close the pop up before trying again.
 
 ### **Both programs are open to improvements or new ideas!**
 
