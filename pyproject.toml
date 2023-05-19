@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "xpanther"
-version = "1.0.6"
+version = "1.0.8"
 authors = [
   { name="Flori Batusha", email="floribatusha0@gmail.com" },
 ]
