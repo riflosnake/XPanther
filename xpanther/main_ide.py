@@ -8,9 +8,10 @@ from xpanther import XPanther
 
 
 class XPantherIDE:
-    def __init__(self, page_url):
+    def __init__(self, page_url, custom_alert=True):
         self.__driver = webdriver.Chrome()
         self.__page_url = page_url
+        self.alert = custom_alert
 
     def wait_for_alert(self):
         for _ in range(100):
@@ -69,26 +70,36 @@ class XPantherIDE:
                         lambda driver: self.__driver.execute_script(return_js)
                     )
                     if return_value:
-                        try:
-                            self.__driver.execute_script(
-                                """
-                                    Swal.fire({
-                                      position: 'top-end',
-                                      text: 'Capturing...',
-                                      })"""
-                            )
-                            xpath = XPanther(
-                                return_value[1], print_output=False, speed='fast'
-                            ).capture(return_value[0])[0]
-                            self.__driver.execute_script(
-                                f"""
-                                   Swal.fire({{
-                                      position: 'top-end',
-                                      text: '{xpath}',
-                                      timer: 10000,
-                                      }})"""
-                            )
-                        except WebDriverException:
+                        if self.alert:
+                            try:
+                                self.__driver.execute_script(
+                                    """
+                                        Swal.fire({
+                                          position: 'top-end',
+                                          text: 'Capturing...',
+                                          padding: '50'
+                                          })"""
+                                )
+                                xpath = XPanther(
+                                    return_value[1], print_output=False, speed='fast'
+                                ).capture(return_value[0])[0]
+                                self.__driver.execute_script(
+                                    f"""
+                                       Swal.fire({{
+                                          position: 'top-end',
+                                          text: '{xpath}',
+                                          timer: 10000,
+                                          padding: '50'
+                                          }})"""
+                                )
+                            except WebDriverException:
+                                self.__driver.execute_script("alert('Capturing...')")
+                                xpath = XPanther(
+                                    return_value[1], print_output=False, speed='fast'
+                                ).capture(return_value[0])[0]
+                                self.__driver.switch_to.alert.accept()
+                                self.__driver.execute_script(f"alert('{xpath}')")
+                        else:
                             self.__driver.execute_script("alert('Capturing...')")
                             xpath = XPanther(
                                 return_value[1], print_output=False, speed='fast'
