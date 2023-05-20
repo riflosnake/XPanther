@@ -13,7 +13,7 @@
 ```python
 pip install xpanther
 ```   
-_or search it by `xpanther` if you have editor with package installer. If it doesn't show up (happens in pycharm sometimes), go to global site-packages (`pip show xpanther`<--cmd command to find directory), find and copy xpanther package, and paste it to your project's venv._
+_or search it by `xpanther` if you have editor with package installer._
 
 ## This package contains 2 modules, `XPanther` and `XPantherIDE`, let's start with the powerhouse!
 Import XPanther to your file like:
@@ -21,6 +21,7 @@ Import XPanther to your file like:
 ```python
 from xpanther import XPanther
 ```
+_If it doesn't show up (happens in pycharm sometimes), go to global site-packages (`pip show xpanther`<--cmd command to find directory), find and copy xpanther package, and paste it to your project's venv._
 
 
 ## How to use:
