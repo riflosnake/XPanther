@@ -90,7 +90,7 @@ Use:
 XPantherIDE('page_url').start()
 ```   
     
-#### After you run the program, the browser will open, and you can start finding xpaths by `right-clicking` over elements. A pop up alert will appear showing the xpath, you must accept/close the pop up before trying again. You can then just close the browser and the program terminates.
+#### After you run the program, the browser will open, and you can start finding xpaths by `right-clicking` over elements. A pop up alert will appear showing the xpath, you must accept/close the alert before trying again. You can then just close the browser and the program terminates correctly.
 
 ### **Both programs are open to improvements or new ideas!**
 
