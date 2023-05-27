@@ -92,6 +92,8 @@ XPantherIDE('page_url').start()
     
 #### After you run the program, the browser will open, and you can start finding xpaths by `right-clicking` over elements. A pop up alert will appear showing the xpath, you must accept/close the alert before trying again. You can then just close the browser and the program terminates correctly.
 
+#### The program will test each xpath if it works, it is corresponding to clicked element, and output it in the console along with its speed.
+
 ### **Both programs are open to improvements or new ideas!**
 
 
