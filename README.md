@@ -9,6 +9,7 @@
 
 ### `Download and install the window-based XPantherIDE application from Releases/XPanther Executable/Assets of this repository!`
 
+
 ### This python module's objective is to find unique xpath selector for any element in a document, using unique attributes/combination of attributes/parent or child relationship methods to find and write such expression for correctly identifying that element.
 
 ## How to install:
@@ -35,7 +36,7 @@ _If it doesn't show up (happens in pycharm sometimes), go to global site-package
 
 #### Insert inside **._capture()_** the **outerHTML/whole** text of element to be found:
 - as a **string**
-- or alternatively an **integer**, which represents the index of that element in the DOM, starting from 1 as the first (check below for interesting usage of index input).
+- or alternatively an **integer**, which represents the index of that element in the DOM, starting from 1 as the first.
 
 ```python
 XPanther(dom).capture(element)
@@ -67,15 +68,7 @@ After writing this , run the code and the **xpath** of that element should be re
 - `speed`  (default: `'normal'`): other valid options are `'fast'` -- (less detailed, faster execution), `'slow'` -- (more detailed, slower execution), or an integer (maximum is 50, which represent the number of attributes of element program can take and proccess to find combinations of).
           if you have a slow computer, better set it to 'fast', cause it takes lesser number of combination and lowers memory and performance consumption, thus increasing speed of execution.
 
-### For most optimal usage, keep this values as default, you have to only change  to xml=True if you are not dealing with HTML, and url_input=True if you like to fetch the HTML directly from link. 
-
-
-#### Interesting way which you can utilize putting an integer as parameter to capture(), is this function like here:
-```python
-for x in range(100):
-    XPanther('xpath_test.txt').capture(x+1)
-```
-Literally, create and write an unique xpath for every element in the document if you want (change the number in range() accordingly).
+### `For most optimal usage, keep this values as default, you have to only change  to xml=True if you are not dealing with HTML, and url_input=True if you like to fetch the HTML directly from link.`
 
 
 
