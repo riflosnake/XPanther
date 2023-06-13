@@ -7,7 +7,7 @@
 
 ### Mostly intended for Selenium and Appium automators.
 
-### `Download and install the window-based application from Releases/XPanther executable`
+### `Download and install the window-based XPantherIDE application from Releases/XPanther Executable/Assets of this repository!`
 
 ### This python module's objective is to find unique xpath selector for any element in a document, using unique attributes/combination of attributes/parent or child relationship methods to find and write such expression for correctly identifying that element.
 
