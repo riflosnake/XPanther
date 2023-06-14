@@ -1,6 +1,5 @@
 # XPanther
----
-        
+---     
         
 <img src="https://user-images.githubusercontent.com/108073687/219871468-2fb5c446-dbb4-43eb-83c3-41d1f90c682d.jpg" width="500" height="300">
 
@@ -16,14 +15,14 @@
 
 --------------
 # Table of content:
-- [XPantherIDE App](#download-and-install-the-window-based-xpantheride-application-from-releasesxpanther-executableassets-of-this-repository)
+- [XPantherIDE App](#xpantheride-app)
 - [XPanther package](#xpanther-package)
     - [How to install](#how-to-install)
         - [XPanther](#xpanther)
-            - [How to use](#how-to-use)
+            - [How to use](#how-to-use-x)
             - [Options](#the-class-has-a-few-optional-parameters-that-you-can-change-to-modify-it-in-the-way-you-want)
         - [XPantherIDE](#xpantheride)
-            - [How to use](#xpantheride)
+            - [How to use](#how-to-use-ide)
 --------------
 # XPantherIDE App
 ### `Download and install the window-based XPantherIDE application from Releases/XPanther Executable/Assets of this repository!`
@@ -54,7 +53,7 @@ from xpanther import XPanther
 ```
 _If it doesn't show up (happens in pycharm sometimes), go to global site-packages (`pip show xpanther`<--cmd command to find directory), find and copy xpanther package, and paste it to your project's venv._
 
-
+<a id="how-to-use-x"></a>
 ## How to use:
 
 #### Insert inside **_XPanther()_** the whole **HTML/XML** text, which can be in the form of:
@@ -107,6 +106,7 @@ Use:
 ```python
 XPantherIDE('page_url').start()
 ```   
+<a id="how-to-use-ide"></a>
 ## How to use:
     
 #### After you run the program, the browser will open, and you can start finding xpaths by `right-clicking` over elements. A pop up alert will appear showing the xpath, you must accept/close the alert before trying again. You can then just close the browser and the program terminates correctly.
