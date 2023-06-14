@@ -18,7 +18,7 @@
 - [XPantherIDE App](#xpantheride-app)
 - [XPanther package](#xpanther-package)
     - [How to install](#how-to-install)
-        - [XPanther](#xpanther)
+        - [XPanther](#x)
             - [How to use](#how-to-use-x)
             - [Options](#the-class-has-a-few-optional-parameters-that-you-can-change-to-modify-it-in-the-way-you-want)
         - [XPantherIDE](#xpantheride)
@@ -44,6 +44,7 @@ pip install xpanther
 _or search it by `xpanther` if you have editor with package installer._
 
 --------------
+<a id="x"></a>
 # XPanther
 
 Import XPanther to your file like:
@@ -70,7 +71,8 @@ XPanther(dom).capture(element)
 ```
 
 After writing this , run the code and the **xpath** of that element should be returned as value and printed in the console.
-    
+
+## Options:
 #### **The class has a few optional-parameters that you can change to modify it in the way you want:**
 
 - `xml` (default: `False`): Set this to `True` if document is not HTML, this is because the xml document can contain uppercase characters in attributes, unlike html, so a different parser needs to be used.
