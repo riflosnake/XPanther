@@ -5,6 +5,8 @@
 
 ## Find Unique Xpath expressions of HTML/XML elements.
 
+[How to use](#how-to-use)
+
 ### Mostly intended for Selenium and Appium automators.
 
 ### `Download and install the window-based XPantherIDE application from Releases/XPanther Executable/Assets of this repository!`
