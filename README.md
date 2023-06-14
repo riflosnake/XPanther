@@ -84,6 +84,7 @@ Use:
 ```python
 XPantherIDE('page_url').start()
 ```   
+## How to use XPantherIDE:
     
 #### After you run the program, the browser will open, and you can start finding xpaths by `right-clicking` over elements. A pop up alert will appear showing the xpath, you must accept/close the alert before trying again. You can then just close the browser and the program terminates correctly.
 
