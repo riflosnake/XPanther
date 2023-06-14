@@ -9,8 +9,8 @@
 
 ### Mostly intended for Selenium and Appium automators.
 
-- #### If you are a Web automator, check `XPantherIde App`, which is `XPantherIDE`, combined with GUI in a executable file, to ease your work.
-- #### If you are an Appium automator, or want to find xpath of xml documents, check `XPanther`, which is part of xpanther package.
+#### &#8226; If you are a Web automator, check `XPantherIde App`, which is `XPantherIDE`, combined with GUI in a executable file, to ease your work.
+#### &#8226; If you are an Appium automator, or want to find xpath of xml documents, check `XPanther`, which is part of xpanther package.
 
 
 --------------
