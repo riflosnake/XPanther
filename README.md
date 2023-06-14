@@ -1,18 +1,42 @@
 # XPanther
+---
         
         
 <img src="https://user-images.githubusercontent.com/108073687/219871468-2fb5c446-dbb4-43eb-83c3-41d1f90c682d.jpg" width="500" height="300">
 
+# Overview
+------
 ## Find Unique Xpath expressions of HTML/XML elements.
-
-[How to use](#how-to-use)
 
 ### Mostly intended for Selenium and Appium automators.
 
+- #### If you are a Web automator, check `XPantherIde App`, which is `XPantherIDE`, combined with GUI in a executable file, to ease your work.
+- #### If you are an Appium automator, or want to find xpath of xml documents, check `XPanther`, which is part of xpanther package.
+
+
+--------------
+# Table of content:
+- [XPantherIDE App](#download-and-install-the-window-based-xpantheride-application-from-releasesxpanther-executableassets-of-this-repository)
+- [XPanther package](#xpanther-package)
+    - [How to install](#how-to-install)
+        - [XPanther](#xpanther)
+            - [How to use](#how-to-use)
+            - [Options](#the-class-has-a-few-optional-parameters-that-you-can-change-to-modify-it-in-the-way-you-want)
+        - [XPantherIDE](#xpantheride)
+            - [How to use](#xpantheride)
+--------------
+# XPantherIDE App
 ### `Download and install the window-based XPantherIDE application from Releases/XPanther Executable/Assets of this repository!`
 
-
-### This python module's objective is to find unique xpath selector for any element in a document, using unique attributes/combination of attributes/parent or child relationship methods to find and write such expression for correctly identifying that element.
+### How to use:
+- Open and run the executable file.
+- Enter the url of the website, and click start!
+- Start `right-clicking` over elements, and an alert pop-up will show their xpath
+- When done, just close the browser.
+- After closing, a output window will open, showing in a text file the output of the program, which are the xpath, the speed of xpath and language-specific Selenium code on how to find the elements.
+--------------
+# XPanther package
+### This package contains 2 modules, `XPanther` and `XPantherIDE`
 
 ## How to install:
 ```python
@@ -20,7 +44,9 @@ pip install xpanther
 ```   
 _or search it by `xpanther` if you have editor with package installer._
 
-## This package contains 2 modules, `XPanther` and `XPantherIDE`, let's start with the powerhouse!
+--------------
+# XPanther
+
 Import XPanther to your file like:
   
 ```python
@@ -45,11 +71,6 @@ XPanther(dom).capture(element)
 ```
 
 After writing this , run the code and the **xpath** of that element should be returned as value and printed in the console.
-
-#### Code execution illustrations:
-
-<img src="https://user-images.githubusercontent.com/108073687/219906727-07172ca3-b5e9-4170-9538-9d0c777fb4c5.jpg" width="900">
-<img src="https://user-images.githubusercontent.com/108073687/219906731-d7215aab-1526-440f-809a-f14c6f3b31ab.jpg" width="900">
     
 #### **The class has a few optional-parameters that you can change to modify it in the way you want:**
 
@@ -72,9 +93,9 @@ After writing this , run the code and the **xpath** of that element should be re
 
 ### `For most optimal usage, keep this values as default, you have to only change  to xml=True if you are not dealing with HTML, and url_input=True if you like to fetch the HTML directly from link.`
 
+--------------
 
-
-# If you are into web automation, that's where `XPantherIDE` comes into play.
+# XPantherIDE
 
 `XPantherIDE` is a simple Selenium script, that tries to mimic an IDE for finding xpaths instantly on any web page with just 1 click.
 
@@ -86,14 +107,16 @@ Use:
 ```python
 XPantherIDE('page_url').start()
 ```   
-## How to use XPantherIDE:
+## How to use:
     
 #### After you run the program, the browser will open, and you can start finding xpaths by `right-clicking` over elements. A pop up alert will appear showing the xpath, you must accept/close the alert before trying again. You can then just close the browser and the program terminates correctly.
+--------------
 
 #### The program will test each xpath if it works, it is corresponding to clicked element, and output it in the console along with its speed.
-
+--------------
+--------------
 ### **Both programs are open to improvements or new ideas!**
-
+-----------------------------------
 
 
 
