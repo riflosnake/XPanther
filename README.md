@@ -28,11 +28,11 @@
 ### `Download and install the window-based XPantherIDE application from Releases/XPanther Executable/Assets of this repository!`
 
 ### How to use:
-- Open and run the executable file.
-- Enter the url of the website, and click start!
-- Start `right-clicking` over elements, and an alert pop-up will show their xpath
-- When done, just close the browser.
-- After closing, a output window will open, showing in a text file the output of the program, which are the xpath, the speed of xpath and language-specific Selenium code on how to find the elements.
+1. Open and run the executable file.
+2. Enter the url of the website, and click start!
+3. Start `right-clicking` over elements, and an alert pop-up will show their xpath
+4. When done, just close the browser.
+5. After closing, a output window will open, showing in a text file the output of the program, which are the xpath, the speed of xpath and language-specific Selenium code on how to find the elements.
 --------------
 # XPanther package
 ### This package contains 2 modules, `XPanther` and `XPantherIDE`
