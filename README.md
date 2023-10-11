@@ -25,7 +25,18 @@
             - [How to use](#how-to-use-ide)
 --------------
 # XPantherIDE App
-### `Download and install the window-based XPantherIDE application from Releases/XPanther Executable/Assets of this repository!`
+
+### How to download:
+
+Check the latest release of this repo, or click here:
+### [Download XPanther](https://github.com/riflosnake/XPanther/releases/download/XPanther/XPanther.zip)
+
+You might have to disable anti-virus if you can't download it due to being falsely detected as a virus.
+
+### How it works:
+**XPanther captures the outerHTML of the element you click, compares it to every element in the web page using different methods to conclude anything unique. After finding unique attributes and relations, it forms all xpaths available. Then using Selenium, it starts checking every xpath if it works for the corresponding element and measures it's speed too. If all goes well, you should end up with a _tested working xpath_ of the element you just clicked in moments!**
+
+It needs Administrator Rights for it to work because Selenium can't find the chrome.exe otherwise, and I didn't want to include chrome.exe binary inside the executable.
 
 ### How to use:
 1. Open and run the executable file.
@@ -33,6 +44,10 @@
 3. Start `right-clicking` over elements, and an alert pop-up will show their xpath
 4. When done, just close the browser.
 5. After closing, a output window will open, showing in a text file the output of the program, which are the xpath, the speed of xpath and language-specific Selenium code on how to find the elements.
+
+### Options:
+1. `Language` - Click on the dropdown and choose which programming language you want to be the Selenium code of finding the element
+2. `Show All` - Check it if you want all the xpaths' be shown, this is more tolerant and gives you more options, the default is more strict.
 --------------
 # XPanther package
 ### This package contains 2 modules, `XPanther` and `XPantherIDE`
