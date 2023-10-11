@@ -16,6 +16,10 @@
 --------------
 # Table of content:
 - [XPantherIDE App](#xpantheride-app)
+    - [How to download](#how-to-download)
+    - [How it works](#how-it-works)
+    - [How to use](#how-to-use)
+    - [Options](#options)
 - [XPanther package](#xpanther-package)
     - [How to install](#how-to-install)
         - [XPanther](#x)
