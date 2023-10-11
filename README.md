@@ -51,7 +51,7 @@ It needs Administrator Rights for it to work because Selenium can't find the chr
 
 ### Options:
 1. `Language` - Click on the dropdown and choose which programming language you want to be the Selenium code of finding the element
-2. `Show All` - Check it if you want all the xpaths' be shown, this is more tolerant and gives you more options, the default is more strict.
+2. `Show All` - Check it if you want all the xpaths' be shown, this is more tolerant and gives you more options. The default mode though is accurate, more strict and very sensitive to click placement, but might not give a xpath result due to last reason.
 --------------
 # XPanther package
 ### This package contains 2 modules, `XPanther` and `XPantherIDE`
