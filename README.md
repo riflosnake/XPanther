@@ -37,6 +37,12 @@ Check the latest release of this repo, or click here:
 
 You might have to disable anti-virus if you can't download it due to being falsely detected as a virus.
 
+or install package (check below) and paste this into terminal:
+
+```powershell
+python -m xpanther.main_gui
+```
+
 ### How it works:
 **XPanther captures the outerHTML of the element you click, compares it to every element in the web page using different methods to conclude anything unique. After finding unique attributes and relations, it forms all xpaths available. Then using Selenium, it starts checking every xpath if it works for the corresponding element and measures it's speed too. If all goes well, you should end up with a _tested working xpath_ of the element you just clicked in moments!**
 
