@@ -1,9 +1,11 @@
 # XPanther
+
 ---     
         
 <img src="https://user-images.githubusercontent.com/108073687/219871468-2fb5c446-dbb4-43eb-83c3-41d1f90c682d.jpg" width="500" height="300">
 
 # Overview
+
 ------
 ## Find Unique Xpath expressions of HTML/XML elements.
 
@@ -40,7 +42,7 @@ You might have to disable anti-virus if you can't download it due to being false
 or install package (check below) and paste this into terminal:
 
 ```powershell
-python -m xpanther.main_gui
+python -m xpanther.launch
 ```
 
 ### How it works:
@@ -137,12 +139,17 @@ XPantherIDE('page_url').start()
 ## How to use:
     
 #### After you run the program, the browser will open, and you can start finding xpaths by `right-clicking` over elements. A pop up alert will appear showing the xpath, you must accept/close the alert before trying again. You can then just close the browser and the program terminates correctly.
+
 --------------
 
 #### The program will test each xpath if it works, it is corresponding to clicked element, and output it in the console along with its speed.
+
 --------------
+
 --------------
-### **Both programs are open to improvements or new ideas!**
+
+### **This repository is open to improvements and new ideas**
+
 -----------------------------------
 
 
